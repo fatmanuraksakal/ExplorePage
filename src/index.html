@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Soft Tone Explore Page</title>
+  <style>
+    .bg-blur {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body class="h-screen w-screen overflow-hidden transition-colors duration-500 bg-[#FFF5F7] text-[#c9c9c9] relative">
+
+  <div id="bg" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"></div>
+
+  <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+
+  <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+    <h1 class="text-5xl font-bold mb-8 text-[#efc8dc] transition-colors">BLESSED</h1>
+    <div class="flex w-full max-w-lg bg-blur rounded-full p-2 transition-all">
+      <input type="text" placeholder="Ara..." class="flex-grow bg-transparent outline-none text-lg px-4 placeholder-[#FFB6C1]" />
+      <button class="px-4 text-[#FF69B4] hover:scale-105 transition-transform">🔍</button>
+    </div>
+  </div>
+
+  <div id="photo-info" class="absolute bottom-4 left-4 p-4 bg-blur rounded-lg max-w-xs text-sm cursor-auto select-auto z-50 pointer-events-auto">
+    <p class="font-medium mb-1"></p>
+    <span class="text-xs text-pink-500">Daha fazlası için: 
+      <a id="moreLink" href="#" target="_blank" class="underline hover:text-pink-700 cursor-pointer" rel="noopener noreferrer">Buraya tıkla</a>
+    </span>
+  </div>
+
+  <div class="absolute bottom-4 right-4 flex gap-3 items-center z-20">
+    <button id="prevBtn" class="p-2 rounded-full bg-blur hover:scale-105 transition-transform cursor-pointer" title="Önceki">◀️</button>
+    <button id="nextBtn" class="p-2 rounded-full bg-blur hover:scale-105 transition-transform cursor-pointer" title="Sonraki">▶️</button>
+  </div>
+
+  <script>
+    const photos = [
+      {
+        url: "../img/paris.jpeg",
+        desc: "Paris - Şehir ışıkları",
+        link: "https://tr.wikipedia.org/wiki/Paris"
+      },
+      {
+        url: "../img/tokyo.jpeg",
+        desc: "Tokyo - Gece pazarı",
+        link: "https://tr.wikipedia.org/wiki/Tokyo"
+      },
+      {
+        url: "../img/newyork.jpeg",
+        desc: "New York - Gün batımı",
+        link: "https://tr.wikipedia.org/wiki/New_York"
+      },
+      {
+        url: "../img/london.jpeg",
+        desc: "Londra - Thames kıyısı",
+        link: "https://tr.wikipedia.org/wiki/Londra"
+      }
+    ];
+
+    let index = 0;
+    const bg = document.getElementById("bg");
+    const info = document.querySelector("#photo-info p");
+    const moreLink = document.getElementById("moreLink");
+
+    function setPhoto(i) {
+      bg.style.opacity = 0;
+      setTimeout(() => {
+        bg.style.backgroundImage = `url(${photos[i].url})`;
+        info.textContent = photos[i].desc;
+        moreLink.href = photos[i].link;
+        bg.style.opacity = 1;
+      }, 400);
+    }
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      index = (index + 1) % photos.length;
+      setPhoto(index);
+    });
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      index = (index - 1 + photos.length) % photos.length;
+      setPhoto(index);
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      setPhoto(index);
+    });
+
+    setInterval(() => {
+      index = (index + 1) % photos.length;
+      setPhoto(index);
+    }, 5000);
+  </script>
+</body>
+</html>
