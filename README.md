@@ -4,7 +4,7 @@ Bu proje, Google’dan ilham alınarak tasarlanmış basit ama şık bir sekme s
 
 4 farklı şehrin (🗼Paris |🗽 New York |🏯 Tokyo |🎡 Londra ) fotoğrafları yumuşak geçişlerle kayıyor. Kullanıcı “Önceki” ve “Sonraki” butonlarıyla aralarında kolayca gezinebiliyor. Her fotoğrafın altında ilgili şehre dair bilgi almak için tıklanabilir bir link bulunuyor.
 
-Tasarımdaki renkler soft pembe ve mor tonlarında, gözü yormayan, hoş ve sade bir görünüm sağlıyor.
+Tasarımdaki renkler soft pembe ve mor tonlarında, gözü yormayan, hoş ve sade bir görünüm sağlıyor. Görseller Microsoft Designer ile bu projeye özel olarak üretildi.
 
 ## 🖍️ Neler Yapıldı 📝
 
@@ -19,7 +19,6 @@ Tasarımdaki renkler soft pembe ve mor tonlarında, gözü yormayan, hoş ve sad
 - “Önceki” ve “Sonraki” butonları ile fotoğraf geçişleri kontrol edildi.
 - Fotoğraflar 5 saniyede bir otomatik olarak değiştirildi.
 - “Daha fazlası için tıkla” linki, her fotoğrafa özel olarak güncellendi.
-
 ---
 
 ![readme](img/readme.png)
